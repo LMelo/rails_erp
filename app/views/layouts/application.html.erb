@@ -6,24 +6,40 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="margin: 20px;">
-
+<body style="margin: 15px;">
     <div class="navbar navbar-inverse">
       <div class="navbar-inner">
-        <a class="brand" href="#"><img src="http://rubyonrails.org/images/rails.png" alt="Rails" width="25" height="25"></a>
+        <a class="brand" href="#">
+          <img src="http://rubyonrails.org/images/rails.png" alt="Rails" width="25" height="25">
+        </a>
         <ul class="nav">
           <li><a href="#">Home</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
         </ul>
+        <% unless user_signed_in? %>
+            <%= link_to "Entrar", 'http://localhost:3000/users/sign_in', :class => "brand pull-right" %>
+        <% else %>
+            <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => "brand pull-right" %>
+        <% end %>
       </div>
     </div>
 
     <%= yield %>
 
-<footer style="text-align: center">
-  <hr/>
-  <p>Em Desenvolvimento</p>
-</footer>
+    <footer>
+      <hr/>
+      <div class="row">
+        <div class="span1">
+          <p>Em Desenvolvimento</p>
+        </div>
+        <div class="span9 offset9">
+          <% if user_signed_in? %>
+              <p>Usuario: <%= current_user.email %></p>
+          <% end %>
+        </div>
+      </div>
+    </footer>
+
 </body>
 </html>
