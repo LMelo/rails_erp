@@ -34,6 +34,11 @@ end
 
 gem 'therubyracer'
 
+gem 'simple_form'
+
+gem 'devise'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
