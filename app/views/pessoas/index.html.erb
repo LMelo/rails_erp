@@ -1,6 +1,6 @@
 <h1>Listing pessoas</h1>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Nome</th>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
 
-  <tbody class="table table-hover table-condensed">
+  <tbody class="table table-condensed">
     <% @pessoas.each do |pessoa| %>
       <tr>
         <td><%= pessoa.nome %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Pessoa', new_pessoa_path, :class => 'btn btn-info' %>
+<%= link_to 'New Pessoa', new_pessoa_path, :class => 'btn btn-primary' %>
